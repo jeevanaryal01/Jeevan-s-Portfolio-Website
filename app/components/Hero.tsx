@@ -8,13 +8,13 @@ export default function Hero() {
           <div className="h-32 bg-gradient-to-r from-accent to-sky-400 sm:h-40" />
 
           <div className="px-4 pb-6 sm:px-6">
-            <div className="-mt-16 h-32 w-32 overflow-hidden rounded-full border-4 border-surface bg-surface sm:h-36 sm:w-36">
+            <div className="-mt-16 h-32 w-32 overflow-hidden rounded-full border-4 border-surface bg-surface transition-shadow duration-300 hover:shadow-lg sm:h-36 sm:w-36">
               <Image
                 src="/profile-photo.png"
                 alt="Jeevan Aryal"
                 width={144}
                 height={144}
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-300 hover:scale-110"
                 priority
               />
             </div>
@@ -32,7 +32,7 @@ export default function Hero() {
               </p>
 
               <div className="mt-4 flex flex-wrap items-center gap-3">
-                <span className="rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent">
+                <span className="pulse-badge rounded-full bg-accent-soft px-3 py-1 text-xs font-semibold text-accent">
                   Open to work
                 </span>
                 <span className="text-sm text-muted">222 connections</span>
@@ -41,13 +41,13 @@ export default function Hero() {
               <div className="mt-5 flex flex-wrap gap-3">
                 <a
                   href="#experience"
-                  className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
+                  className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-150 hover:-translate-y-0.5 hover:bg-accent-hover hover:shadow-md active:translate-y-0"
                 >
                   View experience
                 </a>
                 <a
                   href="#contact"
-                  className="rounded-full border border-accent px-5 py-2.5 text-sm font-semibold text-accent transition-colors hover:bg-accent-soft"
+                  className="rounded-full border border-accent px-5 py-2.5 text-sm font-semibold text-accent transition-all duration-150 hover:-translate-y-0.5 hover:bg-accent-soft hover:shadow-md active:translate-y-0"
                 >
                   Contact
                 </a>

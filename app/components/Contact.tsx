@@ -27,7 +27,10 @@ export default function Contact() {
 
       <ul className="mt-4 divide-y divide-border">
         {CONTACTS.map((contact) => (
-          <li key={contact.label} className="flex items-center justify-between py-3">
+          <li
+            key={contact.label}
+            className="row-hover flex items-center justify-between py-3"
+          >
             <span className="text-sm font-medium text-foreground">
               {contact.label}
             </span>

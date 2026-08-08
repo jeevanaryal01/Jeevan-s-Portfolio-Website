@@ -44,27 +44,29 @@ export default function Projects() {
       {PROJECTS.map((project, i) => (
         <div
           key={project.name}
-          className={`py-4 ${i === PROJECTS.length - 1 ? "" : "border-b border-border"}`}
+          className={i === PROJECTS.length - 1 ? "" : "border-b border-border"}
         >
-          <p className="text-xs font-semibold uppercase tracking-wide text-accent">
-            {project.category}
-          </p>
-          <h3 className="mt-1 font-semibold text-foreground">
-            {project.name}
-          </h3>
-          <p className="mt-2 text-sm leading-relaxed text-muted">
-            {project.description}
-          </p>
-          <ul className="mt-3 flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <li
-                key={tag}
-                className="rounded-full bg-pill-bg px-3 py-1 text-xs font-medium text-pill-text"
-              >
-                {tag}
-              </li>
-            ))}
-          </ul>
+          <div className="row-hover py-4">
+            <p className="text-xs font-semibold uppercase tracking-wide text-accent">
+              {project.category}
+            </p>
+            <h3 className="mt-1 font-semibold text-foreground">
+              {project.name}
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted">
+              {project.description}
+            </p>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {project.tags.map((tag) => (
+                <li
+                  key={tag}
+                  className="pill rounded-full bg-pill-bg px-3 py-1 text-xs font-medium text-pill-text"
+                >
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       ))}
     </SectionCard>

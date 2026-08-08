@@ -68,6 +68,12 @@ body {
   border: 1px solid var(--border);
   border-radius: 0.5rem;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.card:hover {
+  box-shadow: 0 0 0 1px rgba(10, 102, 194, 0.08), 0 12px 28px -10px rgba(10, 102, 194, 0.28);
+  transform: translateY(-2px);
 }
 
 .section-heading {
@@ -77,4 +83,40 @@ body {
   padding-bottom: 0.75rem;
   margin-bottom: 1.25rem;
   border-bottom: 1px solid var(--border);
+}
+
+.pill {
+  transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
+}
+
+.pill:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.row-hover {
+  transition: background-color 150ms ease, padding 150ms ease;
+  border-radius: 0.5rem;
+}
+
+.row-hover:hover {
+  background: var(--background);
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  margin-left: -0.75rem;
+  margin-right: -0.75rem;
+}
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(10, 102, 194, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 0 8px rgba(10, 102, 194, 0);
+  }
+}
+
+.pulse-badge {
+  animation: pulse-ring 2s ease-out infinite;
 }

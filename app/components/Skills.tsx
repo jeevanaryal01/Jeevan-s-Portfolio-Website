@@ -20,7 +20,7 @@ export default function Skills() {
         {SKILLS.map((skill) => (
           <li
             key={skill.name}
-            className="flex items-center gap-2 rounded-full bg-pill-bg px-4 py-2 text-sm font-medium text-pill-text"
+            className="pill flex items-center gap-2 rounded-full bg-pill-bg px-4 py-2 text-sm font-medium text-pill-text"
           >
             {skill.name}
             {skill.endorsements && (

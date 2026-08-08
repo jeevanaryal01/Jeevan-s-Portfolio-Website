@@ -2,12 +2,12 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section id="top" className="px-4 pt-6 sm:px-6">
+    <section id="top" className="scroll-mt-20 px-4 pt-6 sm:px-6">
       <div className="mx-auto max-w-3xl">
         <div className="card overflow-hidden">
           <div className="h-32 bg-gradient-to-r from-accent to-sky-400 sm:h-40" />
 
-          <div className="px-6 pb-6">
+          <div className="px-4 pb-6 sm:px-6">
             <div className="-mt-16 h-32 w-32 overflow-hidden rounded-full border-4 border-surface bg-surface sm:h-36 sm:w-36">
               <Image
                 src="/profile-photo.png"
@@ -41,13 +41,13 @@ export default function Hero() {
               <div className="mt-5 flex flex-wrap gap-3">
                 <a
                   href="#experience"
-                  className="rounded-full bg-accent px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
+                  className="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent-hover"
                 >
                   View experience
                 </a>
                 <a
                   href="#contact"
-                  className="rounded-full border border-accent px-5 py-2 text-sm font-semibold text-accent transition-colors hover:bg-accent-soft"
+                  className="rounded-full border border-accent px-5 py-2.5 text-sm font-semibold text-accent transition-colors hover:bg-accent-soft"
                 >
                   Contact
                 </a>

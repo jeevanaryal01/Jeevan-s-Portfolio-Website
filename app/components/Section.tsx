@@ -10,9 +10,9 @@ export function SectionCard({
   children: ReactNode;
 }) {
   return (
-    <section id={id} className="px-4 py-3 sm:px-6">
+    <section id={id} className="scroll-mt-20 px-4 py-3 sm:px-6">
       <div className="mx-auto max-w-3xl">
-        <div className="card p-6">
+        <div className="card p-4 sm:p-6">
           <h2 className="section-heading">{title}</h2>
           {children}
         </div>

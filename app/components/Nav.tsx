@@ -40,7 +40,7 @@ export default function Nav() {
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex flex-col gap-1.5 sm:hidden"
+          className="-m-2.5 flex flex-col gap-1.5 p-2.5 sm:hidden"
           aria-label="Toggle menu"
           aria-expanded={open}
         >
@@ -57,7 +57,7 @@ export default function Nav() {
               <a
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="block py-2 text-sm font-medium text-muted hover:text-accent"
+                className="block py-3 text-sm font-medium text-muted hover:text-accent"
               >
                 {link.label}
               </a>

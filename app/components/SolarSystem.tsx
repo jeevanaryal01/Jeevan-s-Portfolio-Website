@@ -169,7 +169,7 @@ export default function SolarSystem() {
           {PLANETS.map((p) => {
             const path = ellipsePath(CX, CY, p.rx, p.rx * RY_RATIO);
             return (
-              <a key={p.id} href={`#${p.id}`} aria-label={`${p.name} — ${p.section}`}>
+              <a key={p.id} href={`#${p.id}`} aria-label={`${p.section} (${p.name})`}>
                 <g>
                   <animateMotion
                     dur={`${p.duration}s`}
@@ -198,9 +198,9 @@ export default function SolarSystem() {
                     <text
                       y={-(p.size + 9)}
                       textAnchor="middle"
-                      className="pointer-events-none select-none fill-muted text-[9px] font-medium tracking-wide"
+                      className="planet-label pointer-events-none select-none fill-accent text-[10px] font-semibold tracking-wide"
                     >
-                      {p.name}
+                      {p.section}
                     </text>
                   </g>
                 </g>

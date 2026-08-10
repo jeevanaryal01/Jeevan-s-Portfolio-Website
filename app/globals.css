@@ -232,11 +232,14 @@ body::after {
   transform: scale(1.35);
 }
 
-.planet-visual text {
+.planet-label {
+  opacity: 0;
   transition: fill 200ms ease, opacity 200ms ease;
 }
 
-.planet-visual:hover text {
+.planet-visual:hover .planet-label,
+a:focus .planet-label,
+a:focus-visible .planet-label {
   fill: var(--accent-hover);
   opacity: 1;
 }

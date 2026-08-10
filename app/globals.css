@@ -1,27 +1,37 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f4f2ee;
-  --surface: #ffffff;
-  --border: #e0dfdc;
-  --foreground: #1d2226;
-  --muted: #56687a;
-  --accent: #0a66c2;
-  --accent-hover: #004182;
-  --accent-soft: #e8f2fd;
-  --pill-bg: #eef3f8;
-  --pill-text: #283e59;
+  --background: #04050a;
+  --background-deep: #010104;
+  --surface: rgba(18, 22, 38, 0.6);
+  --surface-solid: #0c0e18;
+  --border: rgba(120, 180, 255, 0.16);
+  --border-strong: rgba(120, 200, 255, 0.32);
+  --foreground: #e8edf5;
+  --muted: #8b96ad;
+  --accent: #5ee0ff;
+  --accent-hover: #8beeff;
+  --accent-soft: rgba(94, 224, 255, 0.12);
+  --sun: #ffb454;
+  --sun-glow: #ff8a3d;
+  --pill-bg: rgba(94, 224, 255, 0.08);
+  --pill-text: #a8e6ff;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-deep: var(--background-deep);
   --color-surface: var(--surface);
+  --color-surface-solid: var(--surface-solid);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-accent-soft: var(--accent-soft);
+  --color-sun: var(--sun);
+  --color-sun-glow: var(--sun-glow);
   --color-pill-bg: var(--pill-bg);
   --color-pill-text: var(--pill-text);
 }
@@ -39,11 +49,45 @@ body {
   color: var(--foreground);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial,
     sans-serif;
+  position: relative;
+}
+
+/* Starfield backdrop, three depth layers for parallax-y density */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-color: var(--background);
+  background-image:
+    radial-gradient(1.6px 1.6px at 12% 18%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 32% 62%, #cfe8ff, transparent),
+    radial-gradient(1.8px 1.8px at 52% 12%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 71% 78%, #cfe8ff, transparent),
+    radial-gradient(1.4px 1.4px at 85% 32%, #fff, transparent),
+    radial-gradient(1px 1px at 6% 82%, #cfe8ff, transparent),
+    radial-gradient(1.6px 1.6px at 92% 88%, #fff, transparent),
+    radial-gradient(1.2px 1.2px at 44% 92%, #cfe8ff, transparent),
+    radial-gradient(1px 1px at 22% 42%, #fff, transparent),
+    radial-gradient(1.4px 1.4px at 63% 48%, #cfe8ff, transparent);
+  background-repeat: repeat;
+  background-size: 340px 340px;
+  opacity: 0.7;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 1200px 700px at 50% -8%, rgba(94, 224, 255, 0.08), transparent 60%),
+    radial-gradient(ellipse 900px 500px at 85% 40%, rgba(255, 138, 61, 0.05), transparent 60%);
 }
 
 ::selection {
   background: var(--accent);
-  color: #ffffff;
+  color: #04101a;
 }
 
 ::-webkit-scrollbar {
@@ -55,43 +99,60 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: var(--border-strong);
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--muted);
+  background: var(--accent);
 }
 
 .card {
-  background: var(--surface);
+  background: linear-gradient(180deg, rgba(22, 27, 46, 0.75), rgba(10, 13, 24, 0.75));
   border: 1px solid var(--border);
-  border-radius: 0.5rem;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 2px 4px rgba(0, 0, 0, 0.04);
-  transition: box-shadow 200ms ease, transform 200ms ease;
+  border-radius: 0.75rem;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 20px 50px -24px rgba(0, 0, 0, 0.7);
+  transition: box-shadow 250ms ease, transform 250ms ease, border-color 250ms ease;
 }
 
 .card:hover {
-  box-shadow: 0 0 0 1px rgba(10, 102, 194, 0.08), 0 12px 28px -10px rgba(10, 102, 194, 0.28);
-  transform: translateY(-2px);
+  border-color: var(--border-strong);
+  box-shadow: 0 0 0 1px rgba(94, 224, 255, 0.15), 0 24px 60px -20px rgba(94, 224, 255, 0.2);
+  transform: translateY(-3px);
 }
 
 .section-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
   font-size: 1.125rem;
   font-weight: 600;
   color: var(--foreground);
   padding-bottom: 0.75rem;
   margin-bottom: 1.25rem;
   border-bottom: 1px solid var(--border);
+  letter-spacing: 0.01em;
+}
+
+.planet-dot {
+  display: inline-block;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px 1px currentColor;
 }
 
 .pill {
-  transition: background-color 150ms ease, color 150ms ease, transform 150ms ease;
+  transition: background-color 150ms ease, color 150ms ease, transform 150ms ease, border-color 150ms ease;
+  border: 1px solid transparent;
 }
 
 .pill:hover {
   background: var(--accent-soft);
-  color: var(--accent);
+  color: var(--accent-hover);
+  border-color: var(--border-strong);
   transform: translateY(-1px);
 }
 
@@ -101,7 +162,7 @@ body {
 }
 
 .row-hover:hover {
-  background: var(--background);
+  background: rgba(94, 224, 255, 0.05);
   padding-left: 0.75rem;
   padding-right: 0.75rem;
   margin-left: -0.75rem;
@@ -110,13 +171,72 @@ body {
 
 @keyframes pulse-ring {
   0% {
-    box-shadow: 0 0 0 0 rgba(10, 102, 194, 0.35);
+    box-shadow: 0 0 0 0 rgba(94, 224, 255, 0.35);
   }
   100% {
-    box-shadow: 0 0 0 8px rgba(10, 102, 194, 0);
+    box-shadow: 0 0 0 8px rgba(94, 224, 255, 0);
   }
 }
 
 .pulse-badge {
   animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes sun-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 60px 12px rgba(255, 138, 61, 0.45), 0 0 120px 40px rgba(255, 180, 84, 0.18);
+  }
+  50% {
+    box-shadow: 0 0 80px 18px rgba(255, 138, 61, 0.6), 0 0 150px 55px rgba(255, 180, 84, 0.25);
+  }
+}
+
+.sun-halo {
+  animation: sun-glow 4s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.drift {
+  animation: drift 6s ease-in-out infinite;
+}
+
+@keyframes slow-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.slow-spin {
+  animation: slow-spin 90s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.planet-visual {
+  transition: transform 200ms ease;
+}
+
+.planet-visual:hover {
+  transform: scale(1.35);
+}
+
+.planet-visual text {
+  transition: fill 200ms ease, opacity 200ms ease;
+}
+
+.planet-visual:hover text {
+  fill: var(--accent-hover);
+  opacity: 1;
 }

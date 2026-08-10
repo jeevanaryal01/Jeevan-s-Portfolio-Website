@@ -34,7 +34,7 @@ const EDUCATION = [
 
 export default function Education() {
   return (
-    <SectionCard id="education" title="Education">
+    <SectionCard id="education" title="Education" dotColor="#c1440e">
       {EDUCATION.map((entry, i) => (
         <EntryItem
           key={entry.title + entry.subtitle}

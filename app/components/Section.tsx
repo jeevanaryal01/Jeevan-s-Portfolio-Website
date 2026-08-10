@@ -3,17 +3,27 @@ import type { ReactNode } from "react";
 export function SectionCard({
   id,
   title,
+  dotColor,
   children,
 }: {
   id: string;
   title: string;
+  dotColor?: string;
   children: ReactNode;
 }) {
   return (
     <section id={id} className="scroll-mt-20 px-4 py-3 sm:px-6">
       <div className="mx-auto max-w-3xl">
         <div className="card p-4 sm:p-6">
-          <h2 className="section-heading">{title}</h2>
+          <h2 className="section-heading">
+            {dotColor && (
+              <span
+                className="planet-dot"
+                style={{ backgroundColor: dotColor, color: dotColor }}
+              />
+            )}
+            {title}
+          </h2>
           {children}
         </div>
       </div>
@@ -40,7 +50,7 @@ export function EntryItem({
     <div className={`${last ? "" : "border-b border-border"}`}>
       <div className="row-hover py-4">
         <h3 className="font-semibold text-foreground">{title}</h3>
-        {subtitle && <p className="text-sm text-foreground">{subtitle}</p>}
+        {subtitle && <p className="text-sm text-foreground/90">{subtitle}</p>}
         {meta && <p className="mt-0.5 text-xs text-muted">{meta}</p>}
         {description && (
           <p className="mt-2 text-sm leading-relaxed text-muted">

@@ -20,7 +20,7 @@ const CONTACTS = [
 
 export default function Contact() {
   return (
-    <SectionCard id="contact" title="Contact">
+    <SectionCard id="contact" title="Contact" dotColor="#7fd9d9">
       <p className="text-sm text-muted">
         Open to opportunities in AI and cyber security.
       </p>

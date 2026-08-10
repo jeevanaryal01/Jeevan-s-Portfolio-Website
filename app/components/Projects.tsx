@@ -40,7 +40,7 @@ const PROJECTS: Project[] = [
 
 export default function Projects() {
   return (
-    <SectionCard id="projects" title="Projects">
+    <SectionCard id="projects" title="Projects" dotColor="#e3c16f">
       {PROJECTS.map((project, i) => (
         <div
           key={project.name}

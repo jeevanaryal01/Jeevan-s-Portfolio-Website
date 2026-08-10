@@ -15,7 +15,7 @@ const SKILLS = [
 
 export default function Skills() {
   return (
-    <SectionCard id="skills" title="Skills">
+    <SectionCard id="skills" title="Skills" dotColor="#2c6bcf">
       <ul className="flex flex-wrap gap-3">
         {SKILLS.map((skill) => (
           <li
@@ -24,7 +24,7 @@ export default function Skills() {
           >
             {skill.name}
             {skill.endorsements && (
-              <span className="rounded-full bg-surface px-1.5 py-0.5 text-xs font-semibold text-accent">
+              <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-xs font-semibold text-accent">
                 {skill.endorsements}
               </span>
             )}

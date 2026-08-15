@@ -40,17 +40,15 @@ const PROJECTS: Project[] = [
 
 export default function Projects() {
   return (
-    <SectionCard id="projects" title="Projects" dotColor="#e3c16f">
+    <SectionCard id="projects" title="Projects">
       {PROJECTS.map((project, i) => (
         <div
           key={project.name}
           className={i === PROJECTS.length - 1 ? "" : "border-b border-border"}
         >
           <div className="row-hover py-4">
-            <p className="text-xs font-semibold uppercase tracking-wide text-accent">
-              {project.category}
-            </p>
-            <h3 className="mt-1 font-semibold text-foreground">
+            <p className="eyebrow eyebrow-signal">{project.category}</p>
+            <h3 className="mt-1.5 font-semibold text-foreground">
               {project.name}
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted">
@@ -58,10 +56,7 @@ export default function Projects() {
             </p>
             <ul className="mt-3 flex flex-wrap gap-2">
               {project.tags.map((tag) => (
-                <li
-                  key={tag}
-                  className="pill rounded-full bg-pill-bg px-3 py-1 text-xs font-medium text-pill-text"
-                >
+                <li key={tag} className="tag px-2.5 py-1 text-foreground/80">
                   {tag}
                 </li>
               ))}

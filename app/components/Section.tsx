@@ -3,25 +3,18 @@ import type { ReactNode } from "react";
 export function SectionCard({
   id,
   title,
-  dotColor,
   children,
 }: {
   id: string;
   title: string;
-  dotColor?: string;
   children: ReactNode;
 }) {
   return (
     <section id={id} className="scroll-mt-20 px-4 py-3 sm:px-6">
       <div className="mx-auto max-w-3xl">
-        <div className="card p-4 sm:p-6">
+        <div className="panel p-4 sm:p-6">
           <h2 className="section-heading">
-            {dotColor && (
-              <span
-                className="planet-dot"
-                style={{ backgroundColor: dotColor, color: dotColor }}
-              />
-            )}
+            <span className="field-mark" />
             {title}
           </h2>
           {children}
@@ -51,7 +44,9 @@ export function EntryItem({
       <div className="row-hover py-4">
         <h3 className="font-semibold text-foreground">{title}</h3>
         {subtitle && <p className="text-sm text-foreground/90">{subtitle}</p>}
-        {meta && <p className="mt-0.5 text-xs text-muted">{meta}</p>}
+        {meta && (
+          <p className="mt-0.5 font-mono text-xs text-muted-dim">{meta}</p>
+        )}
         {description && (
           <p className="mt-2 text-sm leading-relaxed text-muted">
             {description}
@@ -60,10 +55,7 @@ export function EntryItem({
         {tags && tags.length > 0 && (
           <ul className="mt-3 flex flex-wrap gap-2">
             {tags.map((tag) => (
-              <li
-                key={tag}
-                className="pill rounded-full bg-pill-bg px-3 py-1 text-xs font-medium text-pill-text"
-              >
+              <li key={tag} className="tag px-2.5 py-1 text-foreground/80">
                 {tag}
               </li>
             ))}

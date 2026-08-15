@@ -40,11 +40,7 @@ const CERTIFICATIONS = [
 
 export default function Certifications() {
   return (
-    <SectionCard
-      id="certifications"
-      title="Licenses & Certifications"
-      dotColor="#c99a5b"
-    >
+    <SectionCard id="certifications" title="Licenses & Certifications">
       {CERTIFICATIONS.map((entry, i) => (
         <EntryItem
           key={entry.title}

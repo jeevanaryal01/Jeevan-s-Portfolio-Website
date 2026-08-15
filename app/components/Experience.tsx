@@ -28,7 +28,7 @@ const EXPERIENCE = [
 
 export default function Experience() {
   return (
-    <SectionCard id="experience" title="Experience" dotColor="#e0a95c">
+    <SectionCard id="experience" title="Experience">
       {EXPERIENCE.map((entry, i) => (
         <EntryItem
           key={entry.title + entry.subtitle}

@@ -15,16 +15,16 @@ const SKILLS = [
 
 export default function Skills() {
   return (
-    <SectionCard id="skills" title="Skills" dotColor="#2c6bcf">
-      <ul className="flex flex-wrap gap-3">
+    <SectionCard id="skills" title="Skills">
+      <ul className="flex flex-wrap gap-2.5">
         {SKILLS.map((skill) => (
           <li
             key={skill.name}
-            className="pill flex items-center gap-2 rounded-full bg-pill-bg px-4 py-2 text-sm font-medium text-pill-text"
+            className="tag flex items-center gap-2 px-3 py-1.5 text-foreground/80"
           >
             {skill.name}
             {skill.endorsements && (
-              <span className="rounded-full bg-white/10 px-1.5 py-0.5 text-xs font-semibold text-accent">
+              <span className="bg-signal-soft px-1.5 py-0.5 text-[0.625rem] font-semibold text-signal">
                 {skill.endorsements}
               </span>
             )}

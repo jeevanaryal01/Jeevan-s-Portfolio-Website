@@ -1,6 +1,6 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
-import SolarSystem from "./components/SolarSystem";
+import NetworkGraph from "./components/NetworkGraph";
 import About from "./components/About";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
@@ -16,7 +16,7 @@ export default function Home() {
       <Nav />
       <main className="flex-1 space-y-3 pb-8">
         <Hero />
-        <SolarSystem />
+        <NetworkGraph />
         <About />
         <Experience />
         <Education />

@@ -20,7 +20,7 @@ const CONTACTS = [
 
 export default function Contact() {
   return (
-    <SectionCard id="contact" title="Contact" dotColor="#7fd9d9">
+    <SectionCard id="contact" title="Contact">
       <p className="text-sm text-muted">
         Open to opportunities in AI and cyber security.
       </p>
@@ -31,12 +31,12 @@ export default function Contact() {
             key={contact.label}
             className="row-hover flex items-center justify-between py-3"
           >
-            <span className="text-sm font-medium text-foreground">
+            <span className="font-mono text-xs uppercase tracking-wider text-muted-dim">
               {contact.label}
             </span>
             <a
               href={contact.href}
-              className="text-sm font-medium text-accent hover:underline"
+              className="text-sm font-medium text-verify hover:underline"
             >
               {contact.value}
             </a>

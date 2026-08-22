@@ -13,7 +13,7 @@ const EXPERIENCE: EntryData[] = [
     id: "exp-telstra",
     kind: "Experience",
     title: "Sales and Service Consultant",
-    subtitle: "Telstra · Full-time",
+    subtitle: "Telstra · Part-time",
     meta: "Jul 2022 – Jul 2026 · 4 yrs 1 mo",
     tags: ["Team Leadership", "Sales"],
   },

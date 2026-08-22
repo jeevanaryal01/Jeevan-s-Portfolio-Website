@@ -25,14 +25,6 @@ const EXPERIENCE: EntryData[] = [
     meta: "2020 – 2022 · Sydney, NSW",
     tags: ["Communication", "Data Entry"],
   },
-  {
-    id: "exp-hampshire",
-    kind: "Experience",
-    title: "Customer Service Representative",
-    subtitle: "The Lady Hampshire · Part-time",
-    meta: "2019 – 2020 · Sydney, NSW · On-site",
-    tags: ["Communication", "Customer Service"],
-  },
 ];
 
 export default function Experience() {
@@ -41,7 +33,7 @@ export default function Experience() {
       id="work"
       eyebrow="Experience"
       title="track record"
-      intro="Seven years from the shop floor to the security desk."
+      intro="Six years from the shop floor to the security desk."
     >
       {EXPERIENCE.map((entry) => (
         <Entry key={entry.id} data={entry} />

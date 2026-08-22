@@ -27,12 +27,13 @@ export default function Hero() {
               <div className="absolute inset-0 rounded-full bg-yellow" />
               <div className="absolute bottom-0 left-0 h-[84%] w-[84%] overflow-hidden rounded-full">
                 <Image
-                  src="/profile-photo.png"
+                  src="/profile-photo.webp"
                   alt="Jeevan Aryal"
-                  width={272}
-                  height={222}
+                  width={768}
+                  height={1024}
+                  sizes="(min-width: 640px) 34rem, 31rem"
                   priority
-                  className="h-full w-full scale-[1.09] object-cover grayscale contrast-[1.08]"
+                  className="absolute left-[-24.4%] top-[-12%] h-auto w-[154%] max-w-none grayscale contrast-[1.06]"
                 />
               </div>
             </div>

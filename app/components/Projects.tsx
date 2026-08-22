@@ -1,69 +1,56 @@
-import { SectionCard } from "./Section";
+import Section from "./Section";
+import Entry, { type EntryData } from "./Entry";
 
-type Project = {
-  name: string;
-  category: string;
-  description: string;
-  tags: string[];
-};
-
-const PROJECTS: Project[] = [
+const PROJECTS: EntryData[] = [
   {
-    name: "Essential Eight Implementation",
-    category: "Professional · Cyber Security",
+    id: "proj-e8",
+    kind: "Project",
+    title: "Essential Eight implementation",
+    subtitle: "NEXA Group · Cyber security",
     description:
-      "Contributed to implementing the Australian Cyber Security Centre's Essential Eight maturity framework across the organization, covering areas like application control, patching, MFA, and restricting admin privileges to lift overall security posture.",
+      "Contributed to rolling out the ACSC Essential Eight maturity framework across the organisation — application control, patching, MFA and restricting admin privileges — and lifted the overall security posture without grinding day-to-day work to a halt.",
     tags: ["Essential Eight", "Risk Assessment", "MFA", "Patch Management"],
   },
   {
-    name: "Copilot & Claude Rollout at NEXA",
-    category: "Professional · AI Adoption",
+    id: "proj-ai-rollout",
+    kind: "Project",
+    title: "Copilot and Claude rollout",
+    subtitle: "NEXA Group · AI adoption",
     description:
-      "Led the introduction of GitHub Copilot and Claude at NEXA, helping teams adopt AI assistants into their day-to-day workflows to boost productivity and support change management around new tooling.",
+      "Led the introduction of GitHub Copilot and Claude at NEXA: picked the tooling, ran the change management, and helped teams fold AI assistants into the work they already do.",
     tags: ["GitHub Copilot", "Claude", "AI Adoption", "Change Management"],
   },
   {
-    name: "Internal Apps & Agents",
-    category: "Professional · AI Engineering",
+    id: "proj-internal-agents",
+    kind: "Project",
+    title: "Internal apps and agents",
+    subtitle: "NEXA Group · AI engineering",
     description:
-      "Designing and building internal applications and AI agents to automate workflows and streamline day-to-day operations, bridging systems analysis with hands-on AI engineering.",
+      "Designing and building internal applications and AI agents that automate the repetitive parts of operations — systems analysis on one side, hands-on engineering on the other.",
     tags: ["AI Agents", "Automation", "Internal Tooling"],
   },
   {
-    name: "Personal Projects",
-    category: "Personal · Self-Directed Learning",
+    id: "proj-lab",
+    kind: "Project",
+    title: "Personal security and AI lab",
+    subtitle: "Self-directed",
     description:
-      "An ongoing set of self-directed projects for learning AI and cyber security hands-on — a personal lab for experimenting outside of work constraints and building skills project by project.",
+      "An ongoing set of self-directed builds for learning AI and cyber security hands-on — a lab for experimenting outside work constraints, one project at a time.",
     tags: ["AI", "Security", "Self-Directed Learning"],
   },
 ];
 
 export default function Projects() {
   return (
-    <SectionCard id="projects" title="Projects">
-      {PROJECTS.map((project, i) => (
-        <div
-          key={project.name}
-          className={i === PROJECTS.length - 1 ? "" : "border-b border-border"}
-        >
-          <div className="row-hover py-4">
-            <p className="eyebrow eyebrow-signal">{project.category}</p>
-            <h3 className="mt-1.5 font-semibold text-foreground">
-              {project.name}
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted">
-              {project.description}
-            </p>
-            <ul className="mt-3 flex flex-wrap gap-2">
-              {project.tags.map((tag) => (
-                <li key={tag} className="tag px-2.5 py-1 text-foreground/80">
-                  {tag}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+    <Section
+      id="projects"
+      eyebrow="Projects"
+      title="things I've built"
+      intro="Work I owned or drove, at NEXA and on my own time."
+    >
+      {PROJECTS.map((project) => (
+        <Entry key={project.id} data={project} />
       ))}
-    </SectionCard>
+    </Section>
   );
 }

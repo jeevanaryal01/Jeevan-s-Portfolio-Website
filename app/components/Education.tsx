@@ -1,30 +1,41 @@
-import { SectionCard, EntryItem } from "./Section";
+import Section from "./Section";
+import Entry, { type EntryData } from "./Entry";
 
-const EDUCATION = [
+const EDUCATION: EntryData[] = [
   {
+    id: "edu-aihe",
+    kind: "Education",
     title: "Australian Institute of Higher Education",
-    subtitle: "Bachelors in Business Information Systems, Information Technology",
-    meta: "2021 – 2024 · Grade: 5.94 GPA · Activities: Student Representative 2022",
-    tags: ["Database Management System (DBMS)", "Web Development"],
+    subtitle: "Bachelor of Business Information Systems, Information Technology",
+    meta: "2021 – 2024 · 5.94 GPA · Student Representative 2022",
+    tags: ["Database Management (DBMS)", "Web Development"],
   },
   {
+    id: "edu-performance",
+    kind: "Education",
     title: "Performance Education",
     subtitle: "IT Professional Year, Information Technology",
     meta: "Mar 2024 – Mar 2025",
     tags: ["Agile Methodologies"],
   },
   {
-    title: "Southern Academy of Business and Technology (SABT)",
-    subtitle: "Advanced Diploma in Network Security, Information Technology",
+    id: "edu-sabt-adv",
+    kind: "Education",
+    title: "Southern Academy of Business and Technology",
+    subtitle: "Advanced Diploma in Network Security",
     meta: "2020",
     tags: ["Cisco Networking", "Packet Tracer"],
   },
   {
-    title: "Southern Academy of Business and Technology (SABT)",
+    id: "edu-sabt-dip",
+    kind: "Education",
+    title: "Southern Academy of Business and Technology",
     subtitle: "Diploma in Information Technology",
     tags: ["Information Technology", "Business Intelligence (BI)"],
   },
   {
+    id: "edu-uniglobe",
+    kind: "Education",
     title: "Uniglobe SS/College",
     subtitle: "Year 12, Science",
     meta: "Mar 2016 – 2018",
@@ -34,17 +45,15 @@ const EDUCATION = [
 
 export default function Education() {
   return (
-    <SectionCard id="education" title="Education">
-      {EDUCATION.map((entry, i) => (
-        <EntryItem
-          key={entry.title + entry.subtitle}
-          title={entry.title}
-          subtitle={entry.subtitle}
-          meta={entry.meta}
-          tags={entry.tags}
-          last={i === EDUCATION.length - 1}
-        />
+    <Section
+      id="education"
+      eyebrow="Education"
+      title="where it came from"
+      tone="deep"
+    >
+      {EDUCATION.map((entry) => (
+        <Entry key={entry.id} data={entry} />
       ))}
-    </SectionCard>
+    </Section>
   );
 }

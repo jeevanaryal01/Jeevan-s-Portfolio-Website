@@ -1,39 +1,34 @@
 "use client";
 
 import { useState } from "react";
-import StatusBar from "./StatusBar";
 
 const LINKS = [
   { href: "#about", label: "About" },
-  { href: "#experience", label: "Experience" },
-  { href: "#education", label: "Education" },
-  { href: "#skills", label: "Skills" },
+  { href: "#work", label: "Work" },
   { href: "#projects", label: "Projects" },
-  { href: "#contact", label: "Contact" },
+  { href: "#connect", label: "Connect" },
 ];
 
 export default function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur">
-      <StatusBar />
-      <nav className="mx-auto flex max-w-3xl items-center justify-between border-b border-border px-4 py-3 sm:px-6">
-        <a href="#top" className="group flex items-center gap-2.5">
-          <span className="flex h-7 w-7 items-center justify-center border border-signal font-mono text-xs font-semibold text-signal transition-colors duration-200 group-hover:bg-signal-soft">
-            JA
-          </span>
-          <span className="font-semibold tracking-tight text-foreground">
-            Jeevan Aryal
-          </span>
+    <header className="sticky top-0 z-40 bg-paper/90 backdrop-blur-sm">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-5 sm:px-10">
+        <a
+          href="#top"
+          className="display text-2xl tracking-[-0.06em] text-ink"
+          onClick={() => setOpen(false)}
+        >
+          jeevan<span className="text-yellow-deep">.</span>
         </a>
 
-        <ul className="hidden items-center gap-6 sm:flex">
+        <ul className="hidden items-center gap-9 md:flex">
           {LINKS.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="relative py-1 font-mono text-xs uppercase tracking-wider text-muted transition-colors after:absolute after:bottom-0 after:left-0 after:h-0.5 after:w-0 after:bg-signal after:transition-all after:duration-200 hover:text-signal hover:after:w-full"
+                className="navlink text-ink transition-colors hover:text-yellow-deep"
               >
                 {link.label}
               </a>
@@ -41,33 +36,47 @@ export default function Nav() {
           ))}
         </ul>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          className="-m-2.5 flex flex-col gap-1.5 p-2.5 sm:hidden"
-          aria-label="Toggle menu"
-          aria-expanded={open}
-        >
-          <span className="h-0.5 w-6 bg-foreground" />
-          <span className="h-0.5 w-6 bg-foreground" />
-          <span className="h-0.5 w-6 bg-foreground" />
-        </button>
+        <div className="flex items-center gap-4">
+          <a href="#connect" className="btn btn-solid hidden md:inline-flex">
+            Let&rsquo;s connect
+          </a>
+          <button
+            type="button"
+            onClick={() => setOpen((value) => !value)}
+            aria-expanded={open}
+            aria-label={open ? "Close menu" : "Open menu"}
+            className="-m-2.5 flex flex-col gap-[5px] p-2.5 md:hidden"
+          >
+            <span className="h-[3px] w-7 rounded-full bg-ink" />
+            <span className="h-[3px] w-7 rounded-full bg-ink" />
+            <span className="h-[3px] w-7 rounded-full bg-ink" />
+          </button>
+        </div>
       </nav>
 
       {open && (
-        <ul className="flex flex-col gap-1 border-b border-border px-4 py-3 sm:hidden">
-          {LINKS.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="block px-2 py-3 font-mono text-xs uppercase tracking-wider text-muted transition-colors hover:bg-signal-soft hover:text-signal"
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+        <div className="border-t border-rule bg-paper px-6 pb-6 pt-2 md:hidden">
+          <ul className="flex flex-col">
+            {LINKS.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="navlink block border-b border-rule py-4 text-ink"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <a
+            href="#connect"
+            onClick={() => setOpen(false)}
+            className="btn btn-solid mt-5 w-full justify-center"
+          >
+            Let&rsquo;s connect
+          </a>
+        </div>
       )}
     </header>
   );

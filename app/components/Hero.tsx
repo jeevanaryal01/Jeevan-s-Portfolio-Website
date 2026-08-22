@@ -1,79 +1,90 @@
 import Image from "next/image";
-
-const FIELDS = [
-  { label: "Role", value: "IT Analyst" },
-  { label: "Base", value: "Sydney, NSW, Australia" },
-  { label: "Org", value: "NEXA Group" },
-  { label: "Focus", value: "Cybersecurity · CTI · AI Systems" },
-];
+import { EMAIL, GITHUB, LINKEDIN, LOCATION } from "../lib/contact";
+import { ArrowIcon, GitHubIcon, LinkedInIcon, MailIcon } from "./Icons";
 
 export default function Hero() {
   return (
-    <section
-      id="top"
-      className="scroll-mt-20 px-4 pt-14 pb-10 sm:pt-20"
-    >
-      <div className="mx-auto flex max-w-3xl flex-col items-center gap-8 sm:flex-row sm:items-start">
-        <div className="relative shrink-0">
-          <span className="pointer-events-none absolute -left-2 -top-2 h-4 w-4 border-l-2 border-t-2 border-signal/70" />
-          <span className="pointer-events-none absolute -right-2 -top-2 h-4 w-4 border-r-2 border-t-2 border-signal/70" />
-          <span className="pointer-events-none absolute -bottom-2 -left-2 h-4 w-4 border-b-2 border-l-2 border-signal/70" />
-          <span className="pointer-events-none absolute -bottom-2 -right-2 h-4 w-4 border-b-2 border-r-2 border-signal/70" />
-          <div className="relative h-32 w-32 overflow-hidden rounded-full border border-border-strong bg-panel sm:h-36 sm:w-36">
-            <Image
-              src="/profile-photo.png"
-              alt="Jeevan Aryal"
-              width={144}
-              height={144}
-              className="h-full w-full rounded-full object-cover [filter:grayscale(12%)_contrast(1.06)_brightness(0.9)]"
-              priority
-            />
-            <span className="pointer-events-none absolute inset-0 rounded-full shadow-[inset_0_0_22px_10px_rgba(6,7,9,0.65)]" />
-            <span className="scan-sweep pointer-events-none absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-signal/15 to-transparent" />
+    <section id="top" className="px-6 pb-12 pt-4 sm:px-10 sm:pb-16">
+      <div className="mx-auto max-w-6xl">
+        <div className="grid items-center gap-10 md:grid-cols-12 md:gap-0">
+          <div className="order-3 md:order-none md:col-start-1 md:col-end-4 md:row-start-1 md:self-center">
+            <p className="max-w-xs text-[0.9375rem] leading-relaxed text-ash">
+              I work where cyber security, threat intelligence and AI systems
+              meet — turning noisy alerts and messy systems into decisions
+              people can act on.
+            </p>
+            <a
+              href="#about"
+              className="mt-4 inline-flex items-center gap-1.5 border-b-2 border-ink pb-0.5 text-sm font-bold text-ink transition-colors hover:border-yellow-deep hover:text-yellow-deep"
+            >
+              Read more
+              <ArrowIcon className="h-3.5 w-3.5" />
+            </a>
+          </div>
+
+          <div className="order-1 md:order-none md:col-start-4 md:col-end-9 md:row-start-1">
+            <div className="relative mx-auto aspect-square w-full max-w-[20rem] sm:max-w-[22rem]">
+              <div className="absolute inset-0 rounded-full bg-yellow" />
+              <div className="absolute bottom-0 left-0 h-[84%] w-[84%] overflow-hidden rounded-full">
+                <Image
+                  src="/profile-photo.png"
+                  alt="Jeevan Aryal"
+                  width={272}
+                  height={222}
+                  priority
+                  className="h-full w-full scale-[1.09] object-cover grayscale contrast-[1.08]"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="relative z-10 order-2 md:order-none md:col-start-8 md:col-end-13 md:row-start-1 md:self-center">
+            <h1 className="display text-[3.4rem] leading-[0.84] text-ink sm:text-7xl lg:text-[6.5rem]">
+              signal
+              <br />
+              over
+              <br />
+              <span className="mark mark-thick mark-auto">noise</span>.
+            </h1>
+            <p className="label mt-6">Jeevan Aryal — IT Analyst</p>
           </div>
         </div>
 
-        <div className="flex flex-1 flex-col items-center text-center sm:items-start sm:text-left">
-          <p className="eyebrow">
-            Portfolio · Subject Record
-            <span className="cursor-blink text-signal">_</span>
-          </p>
-          <h1 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Jeevan Aryal
-          </h1>
-
-          <dl className="mt-5 grid w-full max-w-md grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 border-t border-border pt-4 text-left font-mono text-xs">
-            {FIELDS.map((f) => (
-              <div key={f.label} className="contents">
-                <dt className="text-muted-dim uppercase tracking-wider">
-                  {f.label}
-                </dt>
-                <dd className="text-muted">{f.value}</dd>
-              </div>
-            ))}
-          </dl>
-
-          <div className="mt-5 flex flex-wrap items-center justify-center gap-3 sm:justify-start">
-            <span className="inline-flex items-center gap-1.5 border border-signal/60 bg-signal-soft px-2.5 py-1 font-mono text-[0.6875rem] uppercase tracking-wider text-signal">
-              <span className="status-dot h-1.5 w-1.5 rounded-full bg-signal" />
-              Open to work
-            </span>
-          </div>
-
-          <div className="mt-7 flex flex-wrap justify-center gap-3 sm:justify-start">
+        <div className="mt-10 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex items-center gap-3">
             <a
-              href="#map"
-              className="border border-signal bg-signal px-6 py-2.5 text-sm font-semibold text-[#16110a] transition-all duration-150 hover:-translate-y-0.5 hover:bg-signal-hover active:translate-y-0"
+              href={LINKEDIN}
+              target="_blank"
+              rel="noreferrer"
+              className="icon-btn"
+              aria-label="Jeevan Aryal on LinkedIn"
             >
-              View the graph
+              <LinkedInIcon className="h-[1.05rem] w-[1.05rem]" />
             </a>
             <a
-              href="#contact"
-              className="border border-border-strong px-6 py-2.5 text-sm font-semibold text-foreground transition-all duration-150 hover:-translate-y-0.5 hover:border-signal hover:text-signal active:translate-y-0"
+              href={GITHUB}
+              target="_blank"
+              rel="noreferrer"
+              className="icon-btn"
+              aria-label="Jeevan Aryal on GitHub"
             >
-              Contact
+              <GitHubIcon className="h-[1.05rem] w-[1.05rem]" />
+            </a>
+            <a
+              href={`mailto:${EMAIL}`}
+              className="icon-btn"
+              aria-label={`Email ${EMAIL}`}
+            >
+              <MailIcon className="h-[1.05rem] w-[1.05rem]" />
+            </a>
+            <a
+              href="#connect"
+              className="ml-1 text-sm font-bold text-ink transition-colors hover:text-yellow-deep"
+            >
+              Let&rsquo;s connect
             </a>
           </div>
+          <p className="label">{LOCATION}</p>
         </div>
       </div>
     </section>

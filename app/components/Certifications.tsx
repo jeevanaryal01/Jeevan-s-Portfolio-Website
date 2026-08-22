@@ -1,38 +1,53 @@
-import { SectionCard, EntryItem } from "./Section";
+import Section from "./Section";
+import Entry, { type EntryData } from "./Entry";
 
-const CERTIFICATIONS = [
+const CERTIFICATIONS: EntryData[] = [
   {
+    id: "cert-isc2",
+    kind: "Certification",
     title: "Security Concepts and Practices",
     subtitle: "ISC2",
     meta: "Issued Mar 2026",
   },
   {
+    id: "cert-pl300",
+    kind: "Certification",
     title: "PL-300: Power BI for Data Analysis",
     subtitle: "Skillsoft",
     meta: "Issued Jun 2024",
   },
   {
+    id: "cert-bigdata",
+    kind: "Certification",
     title: "Big Data Fundamentals",
     subtitle: "Skillsoft",
     meta: "Issued Jun 2024",
   },
   {
+    id: "cert-ba",
+    kind: "Certification",
     title: "Business Analysis Overview",
     subtitle: "Skillsoft",
     meta: "Issued Jun 2024",
   },
   {
-    title: "Developing an AI/ML Data Strategy (3-part series)",
-    subtitle: "Skillsoft",
+    id: "cert-aiml",
+    kind: "Certification",
+    title: "Developing an AI/ML Data Strategy",
+    subtitle: "Skillsoft · 3-part series",
     meta: "Issued Jun 2024",
   },
   {
-    title: "Data Analyst – SQL Fundamentals BootCamp",
+    id: "cert-sql",
+    kind: "Certification",
+    title: "Data Analyst — SQL Fundamentals BootCamp",
     subtitle: "TechSkills Institute",
     meta: "Issued May 2024",
   },
   {
-    title: "Apple Champion For Telstra",
+    id: "cert-apple",
+    kind: "Certification",
+    title: "Apple Champion for Telstra",
     subtitle: "Apple",
     meta: "Issued Jan 2023",
   },
@@ -40,16 +55,15 @@ const CERTIFICATIONS = [
 
 export default function Certifications() {
   return (
-    <SectionCard id="certifications" title="Licenses & Certifications">
-      {CERTIFICATIONS.map((entry, i) => (
-        <EntryItem
-          key={entry.title}
-          title={entry.title}
-          subtitle={entry.subtitle}
-          meta={entry.meta}
-          last={i === CERTIFICATIONS.length - 1}
-        />
+    <Section
+      id="certifications"
+      eyebrow="Certifications"
+      title="paper trail"
+      intro="Seven certifications, most of them earned alongside full-time work."
+    >
+      {CERTIFICATIONS.map((entry) => (
+        <Entry key={entry.id} data={entry} />
       ))}
-    </SectionCard>
+    </Section>
   );
 }
